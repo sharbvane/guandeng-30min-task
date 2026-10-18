@@ -1,0 +1,121 @@
+{
+  "dataset": {
+    "file": "data\\render_tasks.csv",
+    "rows_raw": 1127,
+    "rows_unique_exact": 1073,
+    "exact_duplicate_rows_removed": 54,
+    "unique_task_ids": 1073,
+    "time_range_utc": [
+      "2026-08-31T23:01:00+00:00",
+      "2026-09-07T13:54:00+00:00"
+    ],
+    "timezone_note": "Both timestamp columns parsed with ISO-8601 offsets and normalized to UTC."
+  },
+  "status": {
+    "tasks": 1073,
+    "failed": 133,
+    "timeouts": 45,
+    "successes": 895,
+    "failure_rate": 0.1239515377446412,
+    "failure_rate_pct": 12.4,
+    "failure_rate_ci95_pct": [
+      10.6,
+      14.5
+    ],
+    "timeout_rate_pct": 4.2
+  },
+  "raw_status_sensitivity": {
+    "tasks": 1127,
+    "failed": 140,
+    "timeouts": 47,
+    "successes": 940,
+    "failure_rate": 0.12422360248447205,
+    "failure_rate_pct": 12.4,
+    "failure_rate_ci95_pct": [
+      10.6,
+      14.5
+    ],
+    "timeout_rate_pct": 4.2
+  },
+  "heartbeat_age": {
+    "threshold_min": 20,
+    "fresh": {
+      "tasks": 799,
+      "failed": 33,
+      "timeouts": 32,
+      "successes": 734,
+      "failure_rate": 0.04130162703379224,
+      "failure_rate_pct": 4.1,
+      "failure_rate_ci95_pct": [
+        3.0,
+        5.7
+      ],
+      "timeout_rate_pct": 4.0
+    },
+    "stale": {
+      "tasks": 274,
+      "failed": 100,
+      "timeouts": 13,
+      "successes": 161,
+      "failure_rate": 0.36496350364963503,
+      "failure_rate_pct": 36.5,
+      "failure_rate_ci95_pct": [
+        31.0,
+        42.3
+      ],
+      "timeout_rate_pct": 4.7
+    },
+    "failure_rate_ratio_stale_vs_fresh": 8.84
+  },
+  "primary_rule": {
+    "rule": "lag>=20",
+    "flagged_tasks": 274,
+    "flagged_pct": 25.5,
+    "failed_caught": 100,
+    "failure_rate_in_flagged_pct": 36.5,
+    "recall_pct": 75.2,
+    "avoided_failure_min": 12000,
+    "intercept_min": 5480,
+    "net_saved_min": 6520,
+    "net_saved_hours": 108.7,
+    "net_saved_min_if_80pct_prevented": 4120
+  },
+  "raw_primary_rule_sensitivity": {
+    "rule": "lag>=20",
+    "flagged_tasks": 291,
+    "flagged_pct": 25.8,
+    "failed_caught": 105,
+    "failure_rate_in_flagged_pct": 36.1,
+    "recall_pct": 75.0,
+    "avoided_failure_min": 12600,
+    "intercept_min": 5820,
+    "net_saved_min": 6780,
+    "net_saved_hours": 113.0,
+    "net_saved_min_if_80pct_prevented": 4260
+  },
+  "break_even_failure_rate_pct": 16.7,
+  "cost_assumptions_min": {
+    "failure": 120,
+    "requeue_or_intercept": 20
+  },
+  "data_quality": {
+    "status_mapping": {
+      "1": "success",
+      "0": "failed",
+      "blank": "timeout"
+    },
+    "duplicate_handling": "Exact duplicate rows removed for primary analysis; raw-row sensitivity reported.",
+    "no_fabricated_data": true
+  },
+  "interpretation": [
+    "Stale heartbeat age is the dominant observable failure signal.",
+    "Queue depth is strongly associated with failures but adds little conditional signal after heartbeat age; treat it as a downstream symptom/backlog indicator.",
+    "Low free memory amplifies risk, but a memory-only gate is below break-even on fresh workers."
+  ],
+  "caveats": [
+    "This is observational data, not a controlled experiment.",
+    "Net savings assumes an intercepted failure is successfully rerun; the 80% prevention sensitivity is also reported.",
+    "Blank status means timeout per the task definition and is not counted as a failure.",
+    "The data has no worker ID, retry history, or failure reason code, so the physical root cause of stale heartbeats is not identifiable."
+  ]
+}

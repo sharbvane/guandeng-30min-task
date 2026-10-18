@@ -1,0 +1,15 @@
+dimension,value,tasks,failed,timeouts,successes,failure_rate,failure_rate_pct,failure_rate_ci95_pct,timeout_rate_pct
+cluster_id,cluster_bj_01,257,39,9,209,0.1517509727626459,15.2,"[11.3, 20.1]",3.5
+cluster_id,cluster_gz_03,260,30,11,219,0.11538461538461539,11.5,"[8.2, 16.0]",4.2
+cluster_id,cluster_hz_01,270,23,9,238,0.08518518518518518,8.5,"[5.7, 12.5]",3.3
+cluster_id,cluster_sh_02,286,41,16,229,0.14335664335664336,14.3,"[10.7, 18.9]",5.6
+template_type,fast_cut,106,18,4,84,0.16981132075471697,17.0,"[11.0, 25.3]",3.8
+template_type,lyric_video,119,20,4,95,0.16806722689075632,16.8,"[11.2, 24.5]",3.4
+template_type,montage_beat,132,15,4,113,0.11363636363636363,11.4,"[7.0, 17.9]",3.0
+template_type,news_brief,115,13,4,98,0.11304347826086956,11.3,"[6.7, 18.4]",3.5
+template_type,product_show,105,12,5,88,0.11428571428571428,11.4,"[6.7, 18.9]",4.8
+template_type,promo_card,101,15,5,81,0.1485148514851485,14.9,"[9.2, 23.1]",5.0
+template_type,talking_head,114,11,7,96,0.09649122807017543,9.6,"[5.5, 16.5]",6.1
+template_type,tech_spec,92,11,5,76,0.11956521739130435,12.0,"[6.8, 20.2]",5.4
+template_type,tutorial_clip,95,11,2,82,0.11578947368421053,11.6,"[6.6, 19.6]",2.1
+template_type,voiceover_demo,94,7,5,82,0.07446808510638298,7.4,"[3.7, 14.6]",5.3

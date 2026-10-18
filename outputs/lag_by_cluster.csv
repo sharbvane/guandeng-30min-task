@@ -1,0 +1,5 @@
+cluster_id,fresh_tasks,fresh_failure_pct,stale_tasks,stale_failure_pct
+cluster_bj_01,181,3.3,76,43.4
+cluster_gz_03,195,3.1,65,36.9
+cluster_hz_01,213,7.5,57,12.3
+cluster_sh_02,210,2.4,76,47.4
